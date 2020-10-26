@@ -1,0 +1,18 @@
+device_name="vish_mmc_drive"
+mount_options="umask=000,utf8"
+
+
+while [ ! -e "/dev/sdc" ] 
+do 
+    sleep 3;
+done
+
+# drive is plugged in, so do your thing:
+
+if [ ! -e "/media/$device_name" ]; then
+    mkdir "/media/$device_name"
+fi
+sleep 1;
+
+/usr/bin/mount "/dev/sdc" "/media/$device_name" -o "$mount_options"
+

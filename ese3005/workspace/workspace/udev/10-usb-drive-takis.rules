@@ -1,0 +1,1 @@
+SUBSYSTEMS=="mmc", ATTRS{serial}=="0x597be4b7", ACTION=="add", ENV{SYSTEMD_WANTS}=="vish_mmc_drive_mount.service"

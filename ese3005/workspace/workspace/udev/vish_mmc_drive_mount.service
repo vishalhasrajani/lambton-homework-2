@@ -1,0 +1,9 @@
+[Unit]
+Description=mount the memory card drive!
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /usr/bin/mmc_vish_mount.sh
+
+[Install]
+WantedBy=multi-user.target
