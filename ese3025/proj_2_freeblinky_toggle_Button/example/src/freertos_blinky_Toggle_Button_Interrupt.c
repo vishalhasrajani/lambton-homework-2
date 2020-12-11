@@ -64,13 +64,19 @@ void GPIO_IRQ_HANDLER(void) {
 
 	if (Button_State_1 == false) {
 
+		if(count>=0 && count <=800)
+		{
 		count = count + 50;
+		}
 
 	}
 
 	else if(Button_State_2 == false)
 	{
+		if(count>=0)
+		{
 		count = count - 50;
+		}
 	}
 
 	/* re-enable interrupt */
@@ -181,18 +187,26 @@ int main(void)
 					(xTaskHandle *) NULL);
 
 
+
+
+
 	Chip_GPIO_SetPinDIRInput(LPC_GPIO, GPIO_INTERRUPT_PORT,
 			GPIO_INTERRUPT_PIN_A);
 	Chip_GPIO_SetPinDIRInput(LPC_GPIO, GPIO_INTERRUPT_PORT,
 				GPIO_INTERRUPT_PIN_B);
 
+
+
 	/* Configure the GPIO interrupt */
 	Chip_GPIOINT_SetIntFalling(LPC_GPIOINT, GPIO_INTERRUPT_PORT,
 			(1 << GPIO_INTERRUPT_PIN_A)|(1 << GPIO_INTERRUPT_PIN_B));
 
+
+
 	/* Enable interrupt in the NVIC */
 	NVIC_ClearPendingIRQ(GPIO_INTERRUPT_NVIC_NAME);
 	NVIC_EnableIRQ(GPIO_INTERRUPT_NVIC_NAME);
+
 
 
 	/* Start the scheduler */
