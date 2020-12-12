@@ -66,7 +66,7 @@ void GPIO_IRQ_HANDLER(void) {
 
 		if(count>=0 && count <=800)
 		{
-		count = count + 50;
+		count = count + 50; //incrementing the count by 50
 		}
 
 	}
@@ -75,7 +75,7 @@ void GPIO_IRQ_HANDLER(void) {
 	{
 		if(count>=0)
 		{
-		count = count - 50;
+		count = count - 50; //decrementing the count by 50
 		}
 	}
 
