@@ -56,17 +56,17 @@ void GPIO_IRQ_HANDLER(void) {
 	Chip_GPIOINT_ClearIntStatus(LPC_GPIOINT, GPIO_INTERRUPT_PORT,
 			(1 << GPIO_INTERRUPT_PIN_A)|(1 << GPIO_INTERRUPT_PIN_B));
 
-	bool Button_State_1 = Chip_GPIO_GetPinState(LPC_GPIO, GPIO_INTERRUPT_PORT,
+	bool Button_State_1 = Chip_GPIO_GetPinState(LPC_GPIO, GPIO_INTERRUPT_PORT, //checking the state of pin A
 			GPIO_INTERRUPT_PIN_A);
 
-	bool Button_State_2 = Chip_GPIO_GetPinState(LPC_GPIO, GPIO_INTERRUPT_PORT,
+	bool Button_State_2 = Chip_GPIO_GetPinState(LPC_GPIO, GPIO_INTERRUPT_PORT, //checking the state of pin B
 				GPIO_INTERRUPT_PIN_B);
 
 	if (Button_State_1 == false) {
 
 		if(count>=0 && count <=800)
 		{
-		count = count + 50;
+		count = count + 50; //incrementing the count by 50
 		}
 
 	}
@@ -75,7 +75,7 @@ void GPIO_IRQ_HANDLER(void) {
 	{
 		if(count>=0)
 		{
-		count = count - 50;
+		count = count - 50; //decrementing the count by 50
 		}
 	}
 
