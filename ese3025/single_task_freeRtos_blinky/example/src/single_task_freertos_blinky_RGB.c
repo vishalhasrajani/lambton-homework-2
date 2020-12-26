@@ -68,20 +68,20 @@ static void vLEDTask(void *pvParameters) {
 	uint8_t LED = *((uint8_t*) pvParameters); // LED Color Parameter
 		if (LED == green)
 		{
-			// If green LED offset of 1.5 second
+			//block for 2sec
 			vTaskDelay(2*configTICK_RATE_HZ );
 		}
 
 		if (LED == blue)
 		{
-			// If Blue LED offset of 3 seconds
+			// Block for 4 sec 
 			vTaskDelay(4*configTICK_RATE_HZ);
 		}
 
 	while (1) {
-		Board_LED_Set(LED, true); //red led ON
+		Board_LED_Set(LED, true); // led ON
 		vTaskDelay(configTICK_RATE_HZ );//1sec delay
-		Board_LED_Set(LED, false);//red led OFF
+		Board_LED_Set(LED, false);// led OFF
 		vTaskDelay(5*configTICK_RATE_HZ );//5sec delay
 
 
@@ -106,16 +106,16 @@ int main(void)
 
 	/* LED1 toggle thread */
 	xTaskCreate(vLEDTask, (signed char *) "vTaskLed1",
-				configMINIMAL_STACK_SIZE, (void *)&red_led, (tskIDLE_PRIORITY + 3UL),
+				configMINIMAL_STACK_SIZE, (void *)&red_led, (tskIDLE_PRIORITY + 3UL), // highest priority 
 				(xTaskHandle *) NULL);
 
 	/* LED2 toggle thread */
 	xTaskCreate(vLEDTask, (signed char *) "vTaskLed2",
-				configMINIMAL_STACK_SIZE, (void *)&green_led, (tskIDLE_PRIORITY + 2UL),
+				configMINIMAL_STACK_SIZE, (void *)&green_led, (tskIDLE_PRIORITY + 2UL), // second highest priority
 				(xTaskHandle *) NULL);
 	/* LED3 toggle thread */
 	xTaskCreate(vLEDTask, (signed char *) "vTaskLed3",
-					configMINIMAL_STACK_SIZE, (void *)&blue_led, (tskIDLE_PRIORITY + 1UL),
+					configMINIMAL_STACK_SIZE, (void *)&blue_led, (tskIDLE_PRIORITY + 1UL), //last priority 
 					(xTaskHandle *) NULL);
 
 	/* Start the scheduler */
