@@ -1,0 +1,8 @@
+freertos_blinky_RGB.c:49:13:prvSetupHardware	8	static
+freertos_blinky_RGB.c:70:13:vLEDTask1	16	static
+freertos_blinky_RGB.c:84:13:vLEDTask2	16	static
+freertos_blinky_RGB.c:99:13:vLEDTask3	16	static
+freertos_blinky_RGB.c:114:13:vLEDTask4	16	static
+freertos_blinky_RGB.c:131:13:vLEDTask5	16	static
+freertos_blinky_RGB.c:148:13:vLEDTask6	16	static
+freertos_blinky_RGB.c:176:5:main	24	static
