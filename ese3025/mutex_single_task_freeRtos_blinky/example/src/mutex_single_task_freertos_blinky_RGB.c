@@ -82,7 +82,7 @@ static void vLEDTask(void *pvParameters) {
 		}
 
 	while (1) {
-		xSemaphoreTake(Mutex_h,1000);	// Take the Mutex
+		xSemaphoreTake(Mutex_h,1000);	// Take the Mutex -->Block time of 1000
 
 		Board_LED_Set(LED, true); // led ON
 		vTaskDelay(configTICK_RATE_HZ );//1sec delay
