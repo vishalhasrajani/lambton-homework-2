@@ -80,9 +80,9 @@ static void vLEDTask(void *pvParameters) {
 
 	while (1) {
 		Board_LED_Set(LED, true); // led ON
-		vTaskDelay(configTICK_RATE_HZ );//1sec delay
+		vTaskDelay(configTICK_RATE_HZ );//1sec delay(1000 ticks)
 		Board_LED_Set(LED, false);// led OFF
-		vTaskDelay(5*configTICK_RATE_HZ );//5sec delay
+		vTaskDelay(5*configTICK_RATE_HZ );//5sec delay(5000 ticks)
 
 
 	}
